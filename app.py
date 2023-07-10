@@ -1,26 +1,26 @@
 import pickle
 import streamlit as st
+from streamlit_option_menu import option_menu
 
 # loading the saved models
 
-diabetes_model = pickle.load(open('models\diabetes_model.sav', 'rb'))
+diabetes_model = pickle.load(open('diabetes_model.pkl', 'rb'))
 
-heart_disease_model = pickle.load(open('models\heart_disease_model.sav','rb'))
+heart_disease_model = pickle.load(open('heart_disease_model.pkl','rb'))
 
-parkinsons_model = pickle.load(open('models\parkinsons_model.sav', 'rb'))
+parkinsons_model = pickle.load(open('parkinsons_model.pkl', 'rb'))
 
 # sidebar for navigation
-selected = st.sidebar.selectbox(
-    "Multiple Disease Prediction System",
-    [
-        "Diabetes Prediction",
-        "Heart Disease Prediction",
-        "Parkinsons Prediction"
-    ],
-    format_func=lambda option: f"{option} Prediction",
-    index=0
-)
-
+with st.sidebar:
+    
+    selected = option_menu('Multiple Disease Prediction System',
+                          
+                          ['Diabetes Prediction',
+                           'Heart Disease Prediction',
+                           'Parkinsons Prediction'],
+                          icons=['activity','heart','person'],
+                          default_index=0)
+    
     
 # Diabetes Prediction Page
 if (selected == 'Diabetes Prediction'):
