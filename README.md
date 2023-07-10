@@ -2,7 +2,11 @@
 
 Detects various diseases
 
-To run the app type `streamlit run app.py`
+To run the app 
+
+1. Clone the repo
+  
+2. Type `streamlit run app.py`
 
 ![diabetes1](https://github.com/aasthaaaa7/Multiple-disease-detector/assets/97506205/d2feccf4-7507-4ca4-987b-36697d0a07e9)
 
